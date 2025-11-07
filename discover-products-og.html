@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Product Gallery - AD-N-AD</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="vintage metal signs, branding, fabrication, signage, LED displays, Kolkata" name="keywords">
+    <meta
+        content="Discover AD-N-AD's exclusive collection of vintage metal signs and branding solutions for bars, pubs, garages, and home decor."
+        name="description">
+
+    <link rel="shortcut icon" href="./img/ad-n-ad-logo.ico" type="image/x-icon">
+
+    <!-- Google Web Fonts - ORIGINAL PRESERVED -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/ad-n-ad-logo.ico" type="image/x-icon">
+
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --secondary: #ffb400;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+            --cta: #007bff;
+        }
+
+        .discover-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/discover-bg.jpg') center/cover no-repeat;
+            padding: 150px 0 100px;
+            position: relative;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--light);
+        }
+
+        .product-filters {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-meta {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .view-details-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .view-details-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .month-section {
+            margin-bottom: 50px;
+        }
+
+        .month-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+        }
+
+        .pagination {
+            margin-top: 40px;
+        }
+
+        .page-link {
+            color: var(--primary);
+            border: 1px solid #dee2e6;
+            padding: 10px 18px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .page-link:hover,
+        .page-item.active .page-link {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .discover-hero {
+                padding: 120px 0 80px;
+            }
+
+            .product-img-container {
+                height: 200px;
+            }
+
+            .month-heading {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid header-top">
+        <div class="container d-flex align-items-center">
+            <div class="d-flex align-items-center h-100">
+                <a href="index.html" class="navbar-brand" style="height: 125px;">
+                    <h1 class="text-primary mb-0"> AD-N-AD</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+            </div>
+            <div class="w-100 h-100">
+                <div class="topbar px-0 py-2 d-none d-lg-block" style="height: 45px;">
+                    <div class="row gx-0 align-items-center">
+                        <div class="col-lg-8 text-center text-lg-center mb-lg-0">
+                            <div class="d-flex flex-wrap">
+                                <div class="border-end border-primary pe-3">
+                                    <a href="#" class="text-muted small"><i
+                                            class="fas fa-map-marker-alt text-primary me-2"></i>Salt Lake, Kolkata</a>
+                                </div>
+                                <div class="ps-3">
+                                    <a href="mailto:adnadsujay@gmail.com" class="text-muted small"><i
+                                            class="fas fa-envelope text-primary me-2"></i>adnadsujay@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center text-lg-end">
+                            <div class="d-flex justify-content-end">
+                                <!-- Social media links removed for brevity -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-bar px-0 py-lg-0" style="height: 80px;">
+                    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
+                        <a href="index.html" class="navbar-brand-2">
+                            <h1 class="text-primary mb-0">AD-N-AD</h1>
+                            <!-- <img src="img/logo.png" alt="Logo"> -->
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <div class="navbar-nav mx-0 mx-lg-auto bg-white">
+                                <a href="index.html" class="nav-item nav-link">Home</a>
+                                <a href="./about.html" class="nav-item nav-link">About</a>
+                                <a href="./design.html" class="nav-item nav-link">Design</a>
+                                <a href="./discover-products.html" class="nav-item nav-link active">Products</a>
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <div class="nav-btn ps-3">
+                                    <a href="contact.html" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Get in
+                                        Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <div class="container-fluid discover-hero"
+        style="background: url('./img/Wooden/Interior-Chandrani-Pearls-bg.jpg'); background-size: cover; ">
+        <div class="container text-center py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="display-4 text-white mb-4 animated fadeInDown">Product Gallery</h1>
+                    <nav aria-label="breadcrumb" class="d-inline-block">
+                        <ol class="breadcrumb justify-content-center text-center mb-0 animated fadeInDown">
+                            <li class="breadcrumb-item"><a href='/'>Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Product Gallery</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Discover Hero End -->
+
+    <!-- Product Filters -->
+            <div class="product-filters text-center wow fadeInUp" data-wow-delay="0.2s">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="inshop">Inshop</button>
+                <button class="filter-btn" data-filter="signage">3D Signage</button>
+                <button class="filter-btn" data-filter="led">LED Displays</button>
+                <button class="filter-btn" data-filter="wooden">Interior</button>
+                <button class="filter-btn" data-filter="outdoor">Outdoor</button>
+                <button class="filter-btn" data-filter="fire">Fire & Electrical</button>
+
+            </div>
+
+            <!-- Gallery Sections -->
+            <div class="gallery-section active" id="all-products">
+                <div class="row g-4">
+                    <!-- January Products -->
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/ADNAD-Kolkata-Solutions-for-Retail-Visual-Merchandising-for-Shopping-Outlets.webp" data-lightbox="gallery"
+                                    data-title="Classic Garage Metal Sign">
+                                    <img src="./img/Inshop/ADNAD-Kolkata-Solutions-for-Retail-Visual-Merchandising-for-Shopping-Outlets.webp" alt="Classic Garage Sign"
+                                        class="product-img">
+                                </a>
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Classic Garage Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6 product-item" data-category="outdoor">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/outdoor/outdoor.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/outdoor/outdoor.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/Creative-Wall-Props-for-retail-outlets-by-ADNAD-Kolkata.webp"
+                                    data-lightbox="gallery" data-title="Coffee Shop Decor Sign">
+                                    <img src="./img/Inshop/Creative-Wall-Props-for-retail-outlets-by-ADNAD-Kolkata.webp"
+                                        alt="Coffee Shop Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Shop Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/3d-logos-and-signages-in-Kolkata.webp" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/3d-logos-and-signages-in-Kolkata.webp" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/Digital-standees.jpeg" data-lightbox="gallery"
+                                    data-title="Classic Garage Metal Sign">
+                                    <img src="./img/Inshop/Digital-standees.jpeg" alt="Classic Garage Sign"
+                                        class="product-img">
+                                </a>
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Classic Garage Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/wooden installations.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/wooden installations.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- February Products -->
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/Inshop-GSB.jpg" data-lightbox="gallery"
+                                    data-title="Classic Garage Metal Sign">
+                                    <img src="./img/Inshop/Inshop-GSB.jpg" alt="Classic Garage Sign"
+                                        class="product-img">
+                                </a>
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Classic Garage Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/Inshop-Props.jpg" data-lightbox="gallery"
+                                    data-title="Classic Garage Metal Sign">
+                                    <img src="./img/Inshop/Inshop-Props.jpg" alt="Classic Garage Sign"
+                                        class="product-img">
+                                </a>
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Classic Garage Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/Senco-inshop-prop.jpg" data-lightbox="gallery"
+                                    data-title="Classic Garage Metal Sign">
+                                    <img src="./img/Inshop/Senco-inshop-prop.jpg" alt="Classic Garage Sign"
+                                        class="product-img">
+                                </a>
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Classic Garage Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/fire and electric.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/fire and electric.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/fabindia-logo.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/fabindia-logo.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/High-quality-durable-3D-logo-for-outlets-and-centers.webp" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/High-quality-durable-3D-logo-for-outlets-and-centers.webp" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/Acrylic-Signage-Solutions-for-stores-and-outlets-by-ADNAD-Kolkata.webp" data-lightbox="gallery"
+                                    data-title="Classic Garage Metal Sign">
+                                    <img src="./img/Inshop/Acrylic-Signage-Solutions-for-stores-and-outlets-by-ADNAD-Kolkata.webp" alt="Classic Garage Sign"
+                                        class="product-img">
+                                </a>
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Classic Garage Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/merlin-avana.webp" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/merlin-avana.webp" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/Led-logo.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/Led-logo.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="outdoor">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/outdoor/Outdoor-job-Damro.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/outdoor/Outdoor-job-Damro.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/Zudio 3D Letters.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/Zudio 3D Letters.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/3D-Letter.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/3D-Letter.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="led">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/LED Display/advertisement-displays.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/LED Display/advertisement-displays.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="led">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/LED Display/High-Quality-4K-Display-ADNAD-Kolkata.webp" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/LED Display/High-Quality-4K-Display-ADNAD-Kolkata.webp" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/Chandrani-Pearls-LED-Signage.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/Chandrani-Pearls-LED-Signage.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/Wooden-fixtures.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/Wooden-fixtures.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="led">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/LED Display/led-display.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/LED Display/led-display.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/Electrical-systems.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/Electrical-systems.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="led">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/LED Display/LED-display-Adnad.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/LED Display/LED-display-Adnad.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="outdoor">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/outdoor/Outshop.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/outdoor/Outshop.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="led">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/LED Display/led-screen-ipl.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/LED Display/led-screen-ipl.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/ADNAD-Interior-Installation.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/ADNAD-Interior-Installation.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/Designer-Wooden-Fixtures-for-Product-Displays-by-ADNAD-Kolkata.webp" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/Designer-Wooden-Fixtures-for-Product-Displays-by-ADNAD-Kolkata.webp" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="led">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/LED Display/High-quality-display.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/LED Display/High-quality-display.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/Chandrani-Pearls-Interior.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/Chandrani-Pearls-Interior.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/wooden fixtures.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/wooden fixtures.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/Wiring-and-Electrical.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/Wiring-and-Electrical.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/Ruvika-wooden.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/Ruvika-wooden.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/wooden works.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/wooden works.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/3d Signage/Zudio-LED-Letter.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/3d Signage/Zudio-LED-Letter.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/wooden-1.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/wooden-1.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/wooden-racks.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/wooden-racks.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/wooden-works.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/wooden-works.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="wooden">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Wooden/wooden.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Wooden/wooden.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="outdoor">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/outdoor/Outdoor 2.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/outdoor/Outdoor 2.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="signage">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/High-Quality-Designer-3D-Logo-for-Businesses-and-Institutions-by-ADNAD-Kolkata.webp"
+                                    data-lightbox="gallery" data-title="Gas Station Metal Sign">
+                                    <img src="./img/High-Quality-Designer-3D-Logo-for-Businesses-and-Institutions-by-ADNAD-Kolkata.webp"
+                                        alt="Gas Station Sign" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Gas Station Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/inshop interior.webp" data-lightbox="gallery"
+                                    data-title="Vintage Car Metal Sign">
+                                    <img src="./img/Inshop/inshop interior.webp" alt="Vintage Car Sign" class="product-img">
+                                </a>
+                                <span class="product-badge">Featured</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Vintage Car Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 product-item" data-category="outdoor">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/outdoor/Outdoor Branding 1.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/outdoor/Outdoor Branding 1.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="outdoor">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/outdoor/outdoor 3.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/outdoor/Outdoor 3.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/electrical.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/electrical.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/firing and electricals.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/firing and electricals.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/inshop-retail-display.jpg" data-lightbox="gallery"
+                                    data-title="Classic Garage Metal Sign">
+                                    <img src="./img/Inshop/inshop-retail-display.jpg" alt="Classic Garage Sign"
+                                        class="product-img">
+                                </a>
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Classic Garage Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/fire-proofing.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/fire-proofing.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="led">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/LED Display/Custom-LED-Displays-for-outdoor-promotions-and-brand-advertisement.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/LED Display/Custom-LED-Displays-for-outdoor-promotions-and-brand-advertisement.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/wiring.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/wiring.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/fire.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/fire.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="inshop">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Inshop/Tommy-Hilfiger-Kolkata-outlet-outshop.webp" data-lightbox="gallery"
+                                    data-title="Vintage Route 66 Metal Sign">
+                                    <img src="./img/Inshop/Tommy-Hilfiger-Kolkata-outlet-outshop.webp" alt="Vintage Route 66" class="product-img">
+                                </a>
+                                <span class="product-badge">Popular</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Vintage Route 66 Metal Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 product-item" data-category="fire">
+                        <div class="product-card">
+                            <div class="product-img-container">
+                                <a href="./img/Electricals/Electric-setup.jpg" data-lightbox="gallery"
+                                    data-title="Coffee Bar Decor Sign">
+                                    <img src="./img/Electricals/Electric-setup.jpg" alt="Coffee Bar Decor" class="product-img">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-title">Coffee Bar Decor Sign</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Products Section End -->
+
+    <!-- CTA Section Start -->
+    <div class="container-fluid bg-primary py-5"
+        style="background-image: url('./img/modern-manufacturing-equipment-futuristic-factory-generated-by-ai.webp'); background-size: cover;">
+
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 text-white mb-4">Cannot Find What You Are Looking For?</h2>
+                    <!-- <p class="text-white mb-5">We specialize in custom branding solutions. Contact us to discuss your
+                        specific requirements. Receive a personalized quote.</p> -->
+                    <a href="mailto:adnadsujay@gmail.com" class="btn btn-light btn-lg px-5 py-3">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CTA Section End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer bg-dark py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5 mb-5 align-items-center">
+                <!-- <div class="col-lg-7">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control w-100 py-3 ps-4 pe-5" type="text"
+                            placeholder="Email address to Subscribe">
+                        <button type="button"
+                            class="btn btn-primary position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div> -->
+                <!-- <div class="col-lg-5">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                        <a class="btn btn-light btn-md-square rounded-circle me-3" href="#"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-light btn-md-square rounded-circle me-3" href="#"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-light btn-md-square rounded-circle me-0" href="#"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div> -->
+            </div>
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <div class="footer-item">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="img/AD-N-AD-logo.webp" alt="AD-N-AD logo" class="img-fluid me-3"
+                                    style="width:80px; height:auto;">
+                                <h3 class="text-white mb-0">AD-N-AD</h3>
+                            </div>
+                            <p class="text-white mb-3">Your trusted partner for branding and fabrication solutions in
+                                Eastern India since 2010.</p>
+                            <!-- <div class="d-flex">
+                                <a class="btn btn-square btn-primary rounded-circle me-2" href="#"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle me-2" href="#"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle me-0" href="#"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a href="./index.html">Home</a>
+                        <a href="./about.html">About Us</a>
+                        <a href="./design.html">Our Designs</a>
+                        <a href="./discover-products.html">Our Works</a>
+                        <a href="./contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Our Services</h4>
+                        <a href="./discover-products.html">Signage & Branding</a>
+                        <a href="./discover-products.html">LED Displays</a>
+                        <a href="./discover-products.html">Interior Furnishing</a>
+                        <a href="./discover-products.html">Outdoor Branding</a>
+                        <a href="./discover-products.html">Retail Branding</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Contact Info</h4>
+                        <a href="#"><i class="fa fa-map-marker-alt text-primary me-2"></i> BA-24, Saltlake, Sector-1,
+                            Kolkata</a>
+                        <a href="mailto:adnadsujay@gmail.com"><i class="fas fa-envelope text-primary me-2"></i>
+                            adnadsujay@gmail.com</a>
+                        <a href="tel:+91 91631 77085"><i class="fas fa-phone text-primary me-2"></i> +91 91631 77085</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="#" class="border-bottom text-white"><i
+                                class="fas fa-copyright text-light me-2"></i>AD-N-AD</a>, All rights reserved.</span>
+                </div>
+                <!-- <div class="col-md-6 text-center text-md-end text-body">
+                    Designed & Developed by <a class="border-bottom text-white" href="#">AD-N-AD Team</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        // Filter functionality
+        $(document).ready(function () {
+            // Initialize lightbox
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'imageFadeDuration': 300,
+                'positionFromTop': 50
+            });
+
+            $('.filter-btn').on('click', function () {
+                // Remove active class from all buttons
+                $('.filter-btn').removeClass('active');
+                // Add active class to clicked button
+                $(this).addClass('active');
+
+                // Get filter value
+                const filter = $(this).data('filter');
+
+                // Show/hide products based on filter
+                if (filter === 'all') {
+                    $('.product-item').show();
+                } else {
+                    $('.product-item').hide();
+                    $('.product-item[data-category*="' + filter + '"]').show();
+                }
+            });
+
+            // Initialize animations
+            new WOW().init();
+        });
+    </script>
+</body>
+
+</html>

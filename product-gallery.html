@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="lib/animate/animate.min.css" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Our Services - AD-N-AD Branding & Fabrication</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffb400;
+            --secondary: #ff7c00;
+            --bg: #f4f6fb;
+            --card-bg: #fff;
+            --accent: #222;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+            --radius: 18px;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f4f6fb 0%, #ffe6c7 100%);
+            color: var(--accent);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 60px auto 60px auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 56px 36px 44px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-title {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 2.7em;
+            font-weight: 700;
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 18px;
+            letter-spacing: 1.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modern-title span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.18em;
+            margin-bottom: 44px;
+            font-family: 'Roboto', Arial, sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-section {
+            margin-bottom: 54px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-heading {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 36px 0 24px 0;
+            letter-spacing: 1px;
+            text-align: left;
+            border-left: 8px solid var(--primary);
+            padding-left: 18px;
+            background: linear-gradient(90deg, #fffbe6 60%, transparent 100%);
+            display: inline-block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 38px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 24px rgba(255, 180, 0, 0.10), 0 1.5px 8px rgba(0, 0, 0, 0.07);
+            padding: 28px 22px 32px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.18s, box-shadow 0.18s;
+            position: relative;
+            overflow: hidden;
+            border: 1.5px solid #ffe3b3;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #ffb40022 0%, transparent 80%);
+            z-index: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.025);
+            box-shadow: 0 8px 32px rgba(255, 180, 0, 0.18), 0 2px 12px rgba(0, 0, 0, 0.10);
+            border-color: var(--secondary);
+        }
+
+        .service-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 2.5px solid #ffe3b3;
+            margin-bottom: 18px;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(255, 180, 0, 0.09);
+            transition: box-shadow 0.2s, border-color 0.2s;
+            z-index: 1;
+        }
+
+        .service-card:hover .service-img {
+            box-shadow: 0 6px 24px rgba(255, 180, 0, 0.18);
+            border-color: var(--secondary);
+        }
+
+        .service-title {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 1.18em;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+            text-align: center;
+            min-height: 48px;
+            letter-spacing: 0.2px;
+            z-index: 1;
+        }
+
+        .service-meta {
+            color: #888;
+            font-size: 1em;
+            margin-bottom: 18px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+            font-size: 1.08em;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
+            padding: 12px 36px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(255, 180, 0, 0.13);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+            margin-top: 10px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            z-index: 1;
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            box-shadow: 0 6px 24px rgba(255, 124, 0, 0.18);
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 1100px) {
+            .container {
+                padding: 32px 8px;
+            }
+
+            .services-grid {
+                gap: 22px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                margin: 18px 0;
+                padding: 14px 2vw;
+            }
+
+            .modern-title {
+                font-size: 2em;
+            }
+
+            .services-grid {
+                gap: 14px;
+            }
+
+            .service-img {
+                width: 100%;
+                height: 140px;
+            }
+
+            .service-heading {
+                font-size: 1.3em;
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+      <div class="container-fluid header-top">
+        <div class="container d-flex align-items-center">
+            <div class="d-flex align-items-center h-100">
+                <a href="#" class="navbar-brand" style="height: 125px;">
+                    <h1 class="text-primary mb-0"> AD-N-AD</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+            </div>
+            <div class="w-100 h-100">
+                <div class="topbar px-0 py-2 d-none d-lg-block" style="height: 45px;">
+                    <div class="row gx-0 align-items-center">
+                        <div class="col-lg-8 text-center text-lg-center mb-lg-0">
+                            <div class="d-flex flex-wrap">
+                                <div class="border-end border-primary pe-3">
+                                    <a href="#" class="text-muted small"><i
+                                            class="fas fa-map-marker-alt text-primary me-2"></i>Salt Lake, Kolkata</a>
+                                </div>
+                                <div class="ps-3">
+                                    <a href="mailto:adnadsujay@gmail.com" class="text-muted small"><i
+                                            class="fas fa-envelope text-primary me-2"></i>adnadsujay@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center text-lg-end">
+                            <div class="d-flex justify-content-end">
+                                <div class="d-flex border-end border-primary pe-3">
+                                    <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-instagram"></i></a>
+                                    <a class="btn p-0 text-primary me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <div class="dropdown ms-3">
+                                    <a href="#" class="dropdown-toggle text-white" data-bs-toggle="dropdown"><small
+                                            class="text-body"><i class="fas fa-globe-europe text-primary me-2"></i>
+                                            English</small></a>
+                                    <div class="dropdown-menu">
+                                        <a href="#" class="dropdown-item">English</a>
+                                        <a href="#" class="dropdown-item">Hindi</a>
+                                        <a href="#" class="dropdown-item">Bengali</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-bar px-0 py-lg-0" style="height: 80px;">
+                    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
+                        <a href="#" class="navbar-brand-2">
+                            <h1 class="text-primary mb-0">AD-N-AD</h1>
+                            <!-- <img src="img/logo.png" alt="Logo"> -->
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <div class="navbar-nav mx-0 mx-lg-auto bg-white">
+                                <a href="index.html" class="nav-item nav-link active">Home</a>
+                                <a href="./about.html" class="nav-item nav-link">About</a>
+                                <!-- <a href="" class="nav-item nav-link">Services</a> -->
+                                <a href="./discover-products.html" class="nav-item nav-link">Our Services</a>
+                                <!-- <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                        <span class="dropdown-toggle">More</span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a href="projects.html" class="dropdown-item">Our Works</a>
+                                        <a href="team.html" class="dropdown-item">Our Team</a>
+                                        <a href="testimonials.html" class="dropdown-item">Testimonials</a>
+                                        <a href="faq.html" class="dropdown-item">FAQ</a>
+                                    </div>
+                                </div> -->
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <div class="nav-btn ps-3">
+                                    <button
+                                        class="btn-search btn btn-primary btn-md-square mt-2 mt-lg-0 mb-4 mb-lg-0 flex-shrink-0"
+                                        data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                                            class="fas fa-search"></i></button>
+                                    <a href="contact.html" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modern-title"><span>Our Branding & Fabrication Services</span></div>
+        <div class="subtitle">Comprehensive branding solutions for retail giants, luxury brands, and electronics leaders across East India.</div>
+
+        <!-- Signage Services -->
+        <div class="service-section">
+            <div class="service-heading">Signage Solutions</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="./img/services/signage1.jpg" alt="Acrylic Letters" class="service-img">
+                    <div class="service-title">Acrylic Letters & Logos</div>
+                    <div class="service-meta">Premium quality acrylic branding for stores and offices</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/signage2.jpg" alt="ACP Branding" class="service-img">
+                    <div class="service-title">ACP Branding</div>
+                    <div class="service-meta">Aluminum Composite Panel signage for durable branding</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/signage3.jpg" alt="Hoarding Flex Printing" class="service-img">
+                    <div class="service-title">Hoarding Flex Printing</div>
+                    <div class="service-meta">Large format outdoor advertising solutions</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/signage4.jpg" alt="Glow Sign Boards" class="service-img">
+                    <div class="service-title">Glow Sign Boards</div>
+                    <div class="service-meta">Illuminated signage for maximum visibility</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LED Displays -->
+        <div class="service-section">
+            <div class="service-heading">LED Displays</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="./img/services/led1.jpg" alt="Shopping Mall Displays" class="service-img">
+                    <div class="service-title">Shopping Mall Displays</div>
+                    <div class="service-meta">Eye-catching LED displays for retail spaces</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/led2.jpg" alt="Window Designs" class="service-img">
+                    <div class="service-title">Window Designs</div>
+                    <div class="service-meta">Innovative LED window displays for stores</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/led3.jpg" alt="Innovative Props" class="service-img">
+                    <div class="service-title">Innovative Props</div>
+                    <div class="service-meta">Creative acrylic and light props for branding</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Branding Solutions -->
+        <div class="service-section">
+            <div class="service-heading">Branding Solutions</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="./img/services/branding1.jpg" alt="Canvas Branding" class="service-img">
+                    <div class="service-title">Canvas Branding</div>
+                    <div class="service-meta">High-quality canvas prints for indoor branding</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/branding2.jpg" alt="Fabric Box" class="service-img">
+                    <div class="service-title">Fabric Box Branding</div>
+                    <div class="service-meta">Lightweight fabric-based branding solutions</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/branding3.jpg" alt="Vinyl Branding" class="service-img">
+                    <div class="service-title">Vinyl Branding</div>
+                    <div class="service-meta">Versatile vinyl branding for various surfaces</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wooden Jobs -->
+        <div class="service-section">
+            <div class="service-heading">Wooden Fixtures</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="./img/services/wooden1.jpg" alt="Wooden Fixtures" class="service-img">
+                    <div class="service-title">Wooden Fixtures</div>
+                    <div class="service-meta">Custom wooden fixtures for retail spaces</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/wooden2.jpg" alt="Wall Props" class="service-img">
+                    <div class="service-title">Wall Props</div>
+                    <div class="service-meta">Decorative and functional wooden wall elements</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Displays -->
+        <div class="service-section">
+            <div class="service-heading">Display Solutions</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="./img/services/display1.jpg" alt="Indoor Displays" class="service-img">
+                    <div class="service-title">Indoor Displays</div>
+                    <div class="service-meta">Custom indoor display solutions for retail</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/display2.jpg" alt="Outdoor Displays" class="service-img">
+                    <div class="service-title">Outdoor Displays</div>
+                    <div class="service-meta">Durable outdoor display solutions</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+                <div class="service-card">
+                    <img src="./img/services/display3.jpg" alt="Standees" class="service-img">
+                    <div class="service-title">Standees</div>
+                    <div class="service-meta">Freestanding display units for promotions</div>
+                    <a href="service-details.html" class="cta-btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+     <!-- Footer Start -->
+    <div class="container-fluid footer bg-dark py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5 mb-5 align-items-center">
+                <div class="col-lg-7">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control w-100 py-3 ps-4 pe-5" type="text"
+                            placeholder="Email address to Subscribe">
+                        <button type="button"
+                            class="btn btn-primary position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <div class="footer-item">
+                            <h3 class="text-white mb-4">AD-N-AD</h3>
+                            <p class="text-white mb-3">
+                                AD-N-AD is your trusted partner for branding and fabrication solutions in the East Zone
+                                of India.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a href="#">Home</a>
+                        <a href="./about.html">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Our Works</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Our Services</h4>
+                        <a href="#">Signage & Branding</a>
+                        <a href="#">LED Displays</a>
+                        <a href="#">Wooden Fixtures</a>
+                        <a href="#">Indoor & Outdoor Displays</a>
+                        <a href="#">Repair & Maintenance</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Contact Info</h4>
+                        <a href="#"><i class="fa fa-map-marker-alt text-primary me-2"></i> Kolkata, West Bengal,
+                            India</a>
+                        <a href="mailto:adnadsujay@gmail.com"><i class="fas fa-envelope text-primary me-2"></i>
+                            adnadsujay@gmail.com</a>
+                        <a href="tel:+91 91631 77085"><i class="fas fa-phone text-primary me-2"></i> +91 91631 77085</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
